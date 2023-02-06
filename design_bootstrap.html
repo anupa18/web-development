@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>talk-to-mentor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- <span class="border border-primary"> -->
+            <h1 align="center" style="color:brown">Book a Call</h1><br>
+            <h3 align="center">Book a call slot and our representative will call you</h3><br><hr>
+            <form class="row py-3" id="my-form" action="#" onsubmit="onsignup(event)">
+                <div class="col md-100">
+                    <div class="form-group form-group-sm">
+                        <label for="n" class="form-label">Name:</label><br>
+                        <input type="text" id="n" name="n" class="form=control form-control-sm" >
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label><br>
+                        <input type="email" id="email" name="email" class="form=control form-control-sm" >
+                    </div>
+                    <div class="form-group">
+                        <label for="ph">Phone:</label><br>
+                        <input type="tel" id="ph" name="ph" maxlength="10" class="form=control form-control-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Time for Call:</label><br>
+                        <input type="date" id="date" name="date" class="form=control form-control-sm"><input type="time" id="time" name="time" class="form=control form-control-sm"><br><br>
+                        
+                        <input type="submit" value="GET  A  CALL" class="form=control"  style="color:white;background-color:rgb(231, 235, 19);">
+                    </div>
+                </div>
+            </form>
+            <script src="design.js"></script>
+        <!-- </span> -->
+    </div>
+</body>
+</html>
