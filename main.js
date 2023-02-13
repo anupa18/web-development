@@ -52,9 +52,19 @@ function onsubmit(e){
         //let myob_se=JSON.stringify(myob);
 
         localStorage.setItem(myob.name,JSON.stringify(myob));
-
-        const li=document.createElement('li');
+        //adding li tag
+        var li=document.createElement('li');
         li.textContent=myob.name+'-'+myob.email;
+        //adding delete button 
+        var del=document.createElement('input');
+        del.type="buton";
+        del.className="button";
+        del.value="Delete";
+        del.onclick=()=>{
+            localStorage.removeItem(myob.name);
+            u.removeChild(li);
+        }
+        li.appendChild(del);
         
         u.appendChild(li);
 
