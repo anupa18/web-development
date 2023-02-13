@@ -17,11 +17,11 @@
 //         e.preventDefault();
 //         document.querySelector('.container').style.background='green';
 //     })
-const f=document.querySelector("#my-form");
-const name=document.querySelector("#name");
-const email=document.querySelector("#email");
-const m=document.querySelector(".msg");
-const u=document.querySelector("#users");
+var f=document.querySelector("#my-form");
+// var name=document.querySelector('#name').value;
+// var email=document.querySelector('#email').value;
+var m=document.querySelector(".msg");
+var u=document.querySelector("#users");
 
 
 
@@ -29,28 +29,38 @@ f.addEventListener('submit',onsubmit);
 
 function onsubmit(e){
     e.preventDefault();
-    if (name.value===''||email.value===''){
+    //var name=e.target.name.value;
+    //var email=e.target.email.value;
+    var name=document.querySelector('#name').value;
+    var email=document.querySelector('#email').value;
+    if (name===''||email===''){
         m.classList.add('error');
         m.textContent='Please enter all fields';
 
         setTimeout(()=> m.remove(),2000);
     }
     else{
-        const li=document.createElement('li');
-        li.appendChild(document.createTextNode(`${name.value} : ${email.value}`));
+        // const li=document.createElement('li');
+        // li.appendChild(document.createTextNode(`${name.value} : ${email.value}`));
         
 
-        u.appendChild(li);
+        //u.appendChild(li);
         let myob={
-            name:name.value,
-            email:email.value
+            name,
+            email
         };
-        let myob_se=JSON.stringify(myob);
+        //let myob_se=JSON.stringify(myob);
 
-        localStorage.setItem("myob",myob_se);
-        let myob_de=JSON.parse(localStorage.getItem("myob"));
-        console.log(myob_de);
-        name.value='';
-        email.value='';
+        localStorage.setItem(myob.name,JSON.stringify(myob));
+
+        const li=document.createElement('li');
+        li.textContent=myob.name+'-'+myob.email;
+        
+        u.appendChild(li);
+
+        console.log(JSON.parse(localStorage.getItem(myob.name)));
+        //console.log(myob_de);
+        //name.value='';
+        //email.value='';
     }
 }
