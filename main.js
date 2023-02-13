@@ -18,7 +18,7 @@
 //         document.querySelector('.container').style.background='green';
 //     })
 const f=document.querySelector("#my-form");
-const n=document.querySelector("#name");
+const name=document.querySelector("#name");
 const email=document.querySelector("#email");
 const m=document.querySelector(".msg");
 const u=document.querySelector("#users");
@@ -29,7 +29,7 @@ f.addEventListener('submit',onsubmit);
 
 function onsubmit(e){
     e.preventDefault();
-    if (n.value===''||e.value===''){
+    if (name.value===''||email.value===''){
         m.classList.add('error');
         m.textContent='Please enter all fields';
 
@@ -37,13 +37,20 @@ function onsubmit(e){
     }
     else{
         const li=document.createElement('li');
-        li.appendChild(document.createTextNode(`${n.value} : ${email.value}`));
+        li.appendChild(document.createTextNode(`${name.value} : ${email.value}`));
         
 
         u.appendChild(li);
-        localStorage.setItem(n.value,email.value);
-        console.log(localStorage.getItem(n.value));
-        //n.value='';
-        //email.value='';
+        let myob={
+            name:name.value,
+            email:email.value
+        };
+        let myob_se=JSON.stringify(myob);
+
+        localStorage.setItem("myob",myob_se);
+        let myob_de=JSON.parse(localStorage.getItem("myob"));
+        console.log(myob_de);
+        name.value='';
+        email.value='';
     }
 }
