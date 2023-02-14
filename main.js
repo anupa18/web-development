@@ -65,6 +65,18 @@ function onsubmit(e){
             u.removeChild(li);
         }
         li.appendChild(del);
+        //adding edit button 
+        var edit=document.createElement('input');
+        edit.type="buton";
+        edit.className="button";
+        edit.value="Edit";
+        edit.onclick=()=>{
+            localStorage.removeItem(myob.name);
+            u.removeChild(li);
+            document.getElementById('name').value=myob.name;
+            document.getElementById('email').value=myob.email;
+        }
+        li.appendChild(edit);
         
         u.appendChild(li);
 
