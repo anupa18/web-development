@@ -56,6 +56,7 @@ function removeItem(e){
     if(e.target.classList.contains('delete')){
         if(confirm('Are you sure?')){
             var li=e.target.parentElement;
+            console.log(li)
             itemlist.removeChild(li);
         }
     }
@@ -70,15 +71,27 @@ function filteritem(e){
     var items=itemlist.querySelectorAll('li');
     console.log(items);
     //convert to an arry
-    Array.from(items).forEach(function(item){
-        var itemName=item.firstChild.textContent;
-        var itemDescription=item.childNodes[1].textContent;
-        console.log(itemDescription);
+    // Array.from(items).forEach(function(item){
+    //     var itemName=item.firstChild.textContent;
+    //     var itemDescription=item.childNodes[1].textContent;
+    //     console.log(itemDescription);
+    //     if(itemName.toLowerCase().indexOf(text)!=-1 || itemDescription.toLowerCase().indexOf(text)!=-1){
+    //         item.style.display='block';
+    //     }else{
+    //         item.style.display='none';
+    //     }
+    // })
+    for(var i=0;i<items.length;i++){
+        //item=items[i]
+        //console.log(items[i])
+        var itemName=items[i].firstChild.textContent;
+        var itemDescription=items[i].childNodes[1].textContent;
         if(itemName.toLowerCase().indexOf(text)!=-1 || itemDescription.toLowerCase().indexOf(text)!=-1){
-            item.style.display='block';
+            items[i].style.display='block';
         }else{
-            item.style.display='none';
+            items[i].style.display='none';
         }
-    })
+
+    }
     
 }
